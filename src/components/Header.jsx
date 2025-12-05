@@ -25,7 +25,7 @@ import LocalLibraryIcon from "@mui/icons-material/LocalLibrary";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import { useThemeMode } from "../context/ThemeContext";
-
+import LogoIMG from "../assets/image/logo.jpg";
 
 import { Link as RouterLink } from "react-router-dom";
 import NavButton from "./NavButton";
@@ -101,21 +101,29 @@ export default function Header() {
                             minWidth: 0,
                         }}
                     >
-                        <Avatar sx={{ bgcolor: "primary.main" }}>
-                            <LocalLibraryIcon />
-                        </Avatar>
+                        <Box
+                            component="img"
+                            src={LogoIMG}
+                            alt="Logo"
+                            sx={{
+                                width: { xs: 50, sm: 70 }, // responsive width
+                                height: "auto", // keeps aspect ratio
+                                objectFit: "contain", // ensures it doesn't stretch
+                            }}
+                        />
 
                         <Typography
                             variant="h6"
                             noWrap
                             sx={{
                                 fontWeight: 700,
-                                display: { xs: "none", sm: "block" }, // hide logo text on very small screen
+                                display: { xs: "none", sm: "block" },
                             }}
                         >
-                            University Library
+                            Library HCMUE
                         </Typography>
                     </Box>
+
 
                     {/* --- NAVIGATION LINKS (HIDE ON MOBILE) --- */}
                     <Box
@@ -187,14 +195,14 @@ export default function Header() {
                     >
                         <SearchIcon color="action" />
                         <InputBase
-                            placeholder="Search books..."
+                            placeholder="Tìm sách..."
                             sx={{
                                 ml: 1,
                                 flex: 1,
                             }}
                         />
                         <Button variant="contained" size="small" sx={{ borderRadius: "20px" }}>
-                            Search
+                            Tìm
                         </Button>
                     </Paper>
 
@@ -223,11 +231,18 @@ export default function Header() {
             <Drawer anchor="left" open={open} onClose={toggleDrawer(false)}>
                 <Box sx={{ width: 260, p: 2 }}>
                     <Box sx={{ display: "flex", alignItems: "center", gap: 1, mb: 2 }}>
-                        <Avatar sx={{ bgcolor: "primary.main" }}>
-                            <LocalLibraryIcon />
-                        </Avatar>
+                        <Box
+                            component="img"
+                            src={LogoIMG}
+                            alt="Logo"
+                            sx={{
+                                width: { xs: 50, sm: 70 }, // responsive width
+                                height: "auto", // keeps aspect ratio
+                                objectFit: "contain", // ensures it doesn't stretch
+                            }}
+                        />
                         <Typography variant="h6" sx={{ fontWeight: 700 }}>
-                            Library Menu
+                            Menu
                         </Typography>
                     </Box>
 
@@ -371,7 +386,7 @@ export default function Header() {
                         >
                             <SearchIcon color="action" />
                             <InputBase
-                                placeholder="Search books..."
+                                placeholder="Tìm sách..."
                                 sx={{
                                     ml: 1,
                                     flex: 1,
@@ -386,7 +401,7 @@ export default function Header() {
                                     px: 2,
                                 }}
                             >
-                                Search
+                                Tìm
                             </Button>
                         </Paper>
                     </Box>

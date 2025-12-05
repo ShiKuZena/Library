@@ -15,23 +15,29 @@ import {
   Stack,
   Tooltip,
   Badge,
-  TextField,
-  InputAdornment,
-  Divider,
   IconButton,
 } from "@mui/material";
 
 import { motion } from "framer-motion";
 import SearchIcon from "@mui/icons-material/Search";
+import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+import { ArrowBackIosNew, ArrowForwardIos } from "@mui/icons-material";
 import InfoIcon from "@mui/icons-material/Info";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import LibraryBooksIcon from "@mui/icons-material/LibraryBooks";
 
 import BookCard from "../components/Bookcard";
 import sampleBooks from "../sample-data/sampleBooks";
+import AD1 from "../assets/image/advert_1.jpg";
+import AD2 from "../assets/image/advert_2.jpg";
+import AD3 from "../assets/image/advert_3.jpg";
+import Contact1 from "../assets/image/contact_1.gif";
+import Contact2 from "../assets/image/contact_2.jpg";
+import Contact3 from "../assets/image/contact_3.jpg";
+import Contact4 from "../assets/image/contact_4.jpg";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination } from "swiper/modules";
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/autoplay";
@@ -60,37 +66,73 @@ export default function Home() {
 
   const news = [
     {
-      title: "Library Renovation Completed",
-      text: "New study rooms, digital labs, and reading halls now open.",
+      title: "Ngày sách và văn hóa đọc Năm 2025",
+      link: "https://lib.hcmue.edu.vn/node/305",
+      text: "Hưởng ứng Ngày Sách và Văn hóa đọc Việt Nam lần thứ IV năm 2025, với Thông điệp:'Văn hóa đọc - Kết nối cộng đồng'.",
     },
     {
-      title: "E-Resource Access Updated",
-      text: "Over 300 new digital research databases added this month.",
+      title: "Tiến sĩ Võ Tá Hân trao tặng 957 quyển sách khoa học cho Trường ĐH Sư phạm TPHCM",
+      link: "https://lib.hcmue.edu.vn/node/256",
+      text: "Tham dự buổi lễ, về phía đơn vị trao tặng sách có: Bà Lê Thị Mỹ Châu – Chủ tịch công ty cổ phần Vinafirst, đại diện Quỹ học bổng Võ Tá Hân; ông Võ Thành Chất – Phó Chủ nhiệm Ủy ban về Người Việt Nam ở nước ngoài Thành phố Hồ Chí Minh; bà Vũ Thị Kiều Dung – Phòng Văn hóa Thông tin xã hội; Đại tá Lê Nam Sơn – Lữ đoàn 125; ông Lê Bá Linh – Chủ tịch Hội đồng quản trị Công ty Pacific Foods; ông Phạm Thái Lâm – Tổng Công ty địa ốc Sài Gòn.",
     },
     {
-      title: "Upcoming Workshop: Research Skills",
-      text: "Learn how to use citation tools and academic search engines.",
+      title: "Văn hóa đọc với việc hình thành vốn tri thức, kỹ năng sống và phát triển nhân cách con người",
+      link: "https://lib.hcmue.edu.vn/node/219",
+      text: "Tham dự Hội thảo có đại diện Ban Tuyên giáo Trung ương, Văn phòng Chính phủ; lãnh đạo một số Sở Văn hóa, Thể thao và Du lịch/Văn hóa và Thể thao",
+    },
+    {
+      title: "Mạng thông tin khoa học và công nghệ TP.HCM (STINET)",
+      link: "https://lib.hcmue.edu.vn/node/212",
+      text: "Hiện nay Thư viện trường Đại học sư phạm TP.HCM đã liên kết với hệ thống mạng liên kết Thông tin khoa học và công nghệ TP.HCM để giúp cho bạn đọc có nhiều nguồn thông tin hơn. Dưới đây là địa chỉ Website và Video hướng dẫn tra cứu",
+    },
+    {
+      title: "Thư cảm ơn về việc tặng sách của tác giả Lê Phát Minh",
+      link: "https://lib.hcmue.edu.vn/node/185",
+      text: "Thư viện Trường Đại học Sư phạm Thành phố Hồ Chí Minh có nhận 06 cuốn sách của tác giả Lê Phát Minh",
     },
   ];
-
-  const testimonials = [
+  const events = [
     {
-      name: "Student 1",
-      role: "University Member",
-      avatar: "S",
-      text: "An amazing digital library experience. Fast search system, helpful staff, and perfect study rooms.",
+      title: "Hướng dẫn sử dụng cơ sở dữ liệu ebook EBSCO",
+      link: "https://lib.hcmue.edu.vn/node/408",
     },
     {
-      name: "Student 2",
-      role: "University Member",
-      avatar: "S",
-      text: "E-resources are very easy to access and download. Highly recommend to other students.",
+      title: "Gia hạn thời gian sử dụng Cơ sở dữ liệu Proquest Ebook Central",
+      link: "https://lib.hcmue.edu.vn/node/406",
     },
     {
-      name: "Student 3",
-      role: "University Member",
-      avatar: "S",
-      text: "The library platform is intuitive and modern. I can find journals and books quickly.",
+      title: "Về việc hướng dẫn sử dụng và tham quan Thư viện cho sinh viên K51",
+      link: "https://lib.hcmue.edu.vn/node/405",
+    },
+    {
+      title: "Tổ chức triển lãm sách kỉ niệm 135 năm ngày sinh Chủ tịch Hồ Chí Minh",
+      link: "https://lib.hcmue.edu.vn/node/399",
+    },
+    {
+      title: "Cẩm nang hướng dẫn sử dụng thư viện",
+      link: "https://lib.hcmue.edu.vn/node/387",
+    },
+    {
+      title: "Sách mới",
+      link: "https://lib.hcmue.edu.vn/node/117",
+    },
+    {
+      title: "Ngưng phục vụ Thư viện tại cơ sở 222 Lê Văn Sỹ",
+      link: "https://lib.hcmue.edu.vn/node/358",
+    },
+  ];
+  const links = [
+    {
+      title: "Trang chủ",
+      url: "https://example.com/home",
+    },
+    {
+      title: "Liên hệ",
+      url: "https://example.com/contact",
+    },
+    {
+      title: "Hỗ trợ khách hàng",
+      url: "https://example.com/support",
     },
   ];
 
@@ -107,144 +149,233 @@ export default function Home() {
         pb: { xs: 8, md: 12 },
       }}
     >
-      <Chatbot/>
-      <Grid container alignItems="center" sx={{ width: "100%", mb: { xs: 10, md: 14 }, mt: { xs: 6, md: 10 } }}>
+      <Chatbot />
+      <Grid container alignItems="center" sx={{ width: "100%", mb: { xs: 2, md: 3 }, mt: { xs: 6, md: 10 } }}>
         <Grid item xs={12} md={6}>
           <Paper
             elevation={10}
             sx={{
               overflow: "hidden",
-              borderRadius: 0, 
+              borderRadius: 0,
             }}
           >
             <Swiper
               modules={[Autoplay, Pagination]}
               slidesPerView={1}
               loop
-              pagination={{ clickable: true }}
+              pagination={{
+                clickable: true,
+                renderBullet: (index, className) =>
+                  `<span class="${className} custom-bullet"></span>`
+              }}
               autoplay={{ delay: 3500, disableOnInteraction: false }}
             >
-              {[
-                "https://picsum.photos/seed/library1/1200/750",
-                "https://picsum.photos/seed/library2/1200/750",
-                "https://picsum.photos/seed/library3/1200/750",
-              ].map((src, i) => (
+              {[AD1, AD2, AD3].map((src, i) => (
                 <SwiperSlide key={i}>
-                  <motion.img
-                    src={src}
-                    alt={`slide-${i}`}
-                    style={{ width: "100%", height: "auto", objectFit: "cover", display: "block" }}
+                  <motion.div
                     initial={{ scale: 1.06 }}
                     animate={{ scale: 1 }}
                     transition={{ duration: 1.6 }}
-                    sx={{
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      overflow: "hidden",
                       borderRadius: 0,
-                      height: {
-                        xs: 250,
-                        sm: 300,
-                        md: 500,
-                      },
                     }}
-                  />
+                  >
+                    <Box
+                      component="img"
+                      src={src}
+                      alt={`slide-${i}`}
+                      sx={{
+                        width: "100%",
+                        objectFit: "cover",
+                        display: "block",
+                        height: { xs: 250, sm: 300, md: 500 },
+                      }}
+                    />
+                  </motion.div>
                 </SwiperSlide>
               ))}
             </Swiper>
           </Paper>
         </Grid>
       </Grid>
-      <Container maxWidth="lg" sx={{ pt: { xs: 2, md: 7 } }}>
-        {/* HERO */}
-        <Grid container spacing={6} alignItems="center" sx={{ width: "100%", mb: { xs: 5, md: 7 } }}>
-          <Grid item xs={12} md={6}>
-            <motion.div initial="hidden" animate="visible" variants={fadeInUp} transition={{ duration: 0.6 }}>
-              <Typography
-                variant="h3"
+      <Container maxWidth="lg" sx={{ pt: { xs: 2, md: 4 } }}>
+
+        <Box sx={{ display: "flex", gap: 3, mb: { xs: 2, md: 4 }, flexWrap: "wrap" }}>
+          {/* News & Event Box */}
+          <Box
+            sx={{
+              flex: "1 1 33%",
+              minWidth: 250,
+              bgcolor: "background.paper",
+              p: 3,
+              borderRadius: 1,
+              boxShadow: 3,
+            }}
+          >
+            <Typography variant="h6" sx={{ fontWeight: 800, mb: 2 }}>
+              Tin Tức & Sự Kiện
+            </Typography>
+
+            {news.map((n, i) => (
+              <Box
+                key={i}
+                component="a"
+                href={n.link}
+                rel="noopener noreferrer"
                 sx={{
-                  fontWeight: 900,
-                  lineHeight: 1.12,
-                  fontSize: { xs: "1.9rem", md: "3rem" },
+                  mb: 2,
+                  display: "block",
+                  textDecoration: "none",
+                  color: "inherit",
+                  cursor: "pointer",
                 }}
               >
-                Your Digital Library Hub
-              </Typography>
+                <Typography
+                  variant="subtitle1"
+                  sx={{ fontWeight: 700 }}
+                >
+                  {n.title}
+                </Typography>
 
-              <Typography variant="body1" color="text.secondary" sx={{ mb: 4, maxWidth: 560, lineHeight: 1.7 }}>
-                Explore thousands of books, journals, e-resources, and research materials with ease. Built for students,
-                educators, and researchers — fast, modern, and accessible.
-              </Typography>
+                <Typography variant="body2" color="text.secondary" noWrap>
+                  {n.text}
+                </Typography>
+              </Box>
+            ))}
+          </Box>
 
-              <motion.div whileHover={{ scale: 1.01 }}>
-                <TextField
-                  fullWidth
-                  placeholder="Search books, journals, authors..."
-                  variant="outlined"
-                  size="large"
+          {/* Notification Box */}
+          <Box
+            sx={{
+              flex: "1 1 33%",
+              minWidth: 250,
+              bgcolor: "background.paper",
+              p: 3,
+              borderRadius: 1,
+              boxShadow: 3,
+            }}
+          >
+            <Typography variant="h6" sx={{ fontWeight: 800, mb: 2 }}>
+              Thông Báo
+            </Typography>
+            {events.map((e, i) => (
+              <motion.div
+                whileHover={{ x: 6, opacity: 0.85 }}
+                transition={{ duration: 0.15, ease: "easeOut" }}
+              >
+                <Box
+                  key={i}
+                  component="a"
+                  href={e.link}
+                  rel="noopener noreferrer"
                   sx={{
-                    bgcolor: "background.paper",
-                    borderRadius: 3,
-                    mb: 3,
-                    ".MuiOutlinedInput-root": { py: 1.1 },
-                  }}
-                  InputProps={{
-                    startAdornment: (
-                      <InputAdornment position="start">
-                        <SearchIcon color="action" />
-                      </InputAdornment>
-                    ),
-                  }}
-                />
-              </motion.div>
-
-              <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
-                <motion.div {...hoverGrow}>
-                  <Button variant="contained" size="large" sx={{ px: 4, borderRadius: 3 }}>
-                    Explore Collections
-                  </Button>
-                </motion.div>
-                <motion.div {...hoverGrow}>
-                  <Button variant="outlined" size="large" sx={{ px: 4, borderRadius: 3 }}>
-                    Library Services
-                  </Button>
-                </motion.div>
-              </Stack>
-            </motion.div>
-          </Grid>
-        </Grid>
-      </Container>
-
-      <Container maxWidth="lg" sx={{ pt: { xs: 5, md: 10 } }}>
-        {/* STAT CARDS */}
-        <Grid container spacing={3} justifyContent="space-around" sx={{ mb: { xs: 8, md: 12 } }}>
-          {stats.map((s, i) => (
-            <Grid item xs={12} sm={6} md={3} key={i}>
-              <motion.div whileHover={{ scale: 1.03 }}>
-                <Paper
-                  elevation={3}
-                  sx={{
-                    width: "200px",
-                    py: 4,
-                    px: 2,
-                    textAlign: "center",
-                    borderRadius: 3,
-                    height: "100%",
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    justifyContent: "center",
+                    mb: 2,
+                    display: "block",
+                    textDecoration: "none",
+                    color: "inherit",
+                    cursor: "pointer",
                   }}
                 >
-                  <LibraryBooksIcon color="primary" sx={{ fontSize: 36, mb: 1 }} />
-                  <Typography variant="h6" sx={{ fontWeight: 800, color: "primary.main" }}>
-                    {s.num}
+                  <Typography
+                    variant="subtitle1"
+                    sx={{
+                      fontWeight: 700,
+                      display: "flex",
+                      alignItems: "center"
+                    }}
+                  >
+                    <PlayArrowIcon />
+                    {e.title}
                   </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    {s.label}
-                  </Typography>
-                </Paper>
+                </Box>
               </motion.div>
-            </Grid>
-          ))}
-        </Grid>
+            ))}
+          </Box>
+        </Box>
+
+        <Box
+          sx={{
+            p: 3,
+            borderRadius: 3,
+            bgcolor: "background.paper",
+            position: "relative",
+            overflow: "hidden",
+            "&:hover .nav-btn": {
+              opacity: 1,
+              pointerEvents: "auto",
+            },
+            mb: { xs: 2, md: 4 }
+          }}
+        >
+          {/* ---- Custom MUI Navigation Buttons ---- */}
+          <IconButton
+            className="nav-btn"
+            sx={{
+              position: "absolute",
+              top: "50%",
+              left: 5,
+              transform: "translateY(-50%)",
+              zIndex: 10,
+              bgcolor: "white",
+              boxShadow: 2,
+              opacity: 0,
+              pointerEvents: "none",
+              transition: "0.2s",
+              "&:hover": { bgcolor: "grey.100" },
+            }}
+          >
+            <ArrowBackIosNew fontSize="small" />
+          </IconButton>
+
+          <IconButton
+            className="nav-btn"
+            sx={{
+              position: "absolute",
+              top: "50%",
+              right: 5,
+              transform: "translateY(-50%)",
+              zIndex: 10,
+              bgcolor: "white",
+              boxShadow: 2,
+              opacity: 0,
+              pointerEvents: "none",
+              transition: "0.2s",
+              "&:hover": { bgcolor: "grey.100" },
+            }}
+          >
+            <ArrowForwardIos fontSize="small" />
+          </IconButton>
+
+          {/* ---- SWIPER ---- */}
+          <Swiper
+            modules={[Navigation]}
+            slidesPerView={4}
+            spaceBetween={30}
+            navigation={{
+              prevEl: ".nav-btn:first-of-type",
+              nextEl: ".nav-btn:last-of-type",
+            }}
+            style={{ width: "100%" }}
+          >
+            {[Contact1, Contact2, Contact3, Contact4].map((logo, i) => (
+              <SwiperSlide key={i}>
+                <Box
+                  component="img"
+                  src={logo}
+                  sx={{
+                    width: "100%",
+                    height: 90,
+                    objectFit: "contain",
+                    filter: "brightness(1)",
+                  }}
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </Box>
 
         {/* TRENDING RESOURCES */}
         <Box sx={{ mb: { xs: 8, md: 12 } }}>
@@ -481,35 +612,6 @@ export default function Home() {
                       </Stack>
                     </CardContent>
                   </Card>
-                </motion.div>
-              </Grid>
-            ))}
-          </Grid>
-        </Box>
-
-        {/* NEWS */}
-        <Box sx={{ mb: { xs: 8, md: 12 } }}>
-          <Typography variant="h5" sx={{ fontWeight: 800, mb: 3 }}>
-            Tin Tức | Sự Kiện
-          </Typography>
-
-          <Grid container spacing={4}>
-            {news.map((n, i) => (
-              <Grid item xs={12} md={4} key={i}>
-                <motion.div whileHover={{ scale: 1.03 }}>
-                  <Paper elevation={4} sx={{ p: 3, borderRadius: 3 }}>
-                    <Box sx={{ width: "100%", height: 4, bgcolor: "primary.main", borderRadius: 2, mb: 2 }} />
-                    <Typography variant="h6" sx={{ fontWeight: 800, mb: 1 }}>
-                      {n.title}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                      {n.text}
-                    </Typography>
-
-                    <Button size="small" sx={{ mt: 2 }}>
-                      Read More
-                    </Button>
-                  </Paper>
                 </motion.div>
               </Grid>
             ))}

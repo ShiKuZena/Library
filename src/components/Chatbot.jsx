@@ -30,7 +30,7 @@ function Chatbot() {
 
       <div id="chatbot" className={chatVisible ? "show" : "hidden"}>
         <div id="chat-header">
-          <h3>Library Assistant</h3>
+          <h3>Library Chatbot</h3>
           <button id="close-btn" onClick={closeChat}>&times;</button>
         </div>
 

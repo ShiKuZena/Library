@@ -5,3 +5,18 @@ body{
 header{
     padding-right: 0 !important;
 }
+.custom-bullet {
+  width: 10px;
+  height: 10px;
+  background: #ccc;
+  opacity: .6;
+  border-radius: 50%;
+  transition: all .35s ease;
+}
+
+.swiper-pagination-bullet-active.custom-bullet {
+  width: 24px;
+  border-radius: 12px;
+  background: #1976d2;
+  opacity: 1;
+}

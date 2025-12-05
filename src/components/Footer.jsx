@@ -1,105 +1,164 @@
-import React from 'react';
-import { Box, Container, Typography, Button, Stack, IconButton } from '@mui/material';
-import { Facebook, Instagram, YouTube, Mail } from '@mui/icons-material';
+import React from "react";
+import {
+  Box,
+  Container,
+  Grid,
+  Typography,
+  IconButton,
+  Stack,
+  Divider,
+  Button,
+} from "@mui/material";
+import { Facebook, Instagram, YouTube, Mail } from "@mui/icons-material";
 
 export default function Footer() {
-    return (
+  return (
+    <Box
+      sx={{
+        mt: 12,
+        pt: 8,
+        pb: 4,
+        background: "linear-gradient(135deg, #0d1b2a, #1b263b, #1f354d)",
+        color: "white",
+        position: "relative",
+      }}
+    >
+      <Container maxWidth="lg">
+
+        {/* Glow Line */}
         <Box
-            sx={{
-                mt: 8,
-                py: 6,
-                background: "linear-gradient(135deg, #1a237e, #0b3256)",
-                color: "white",
-                boxShadow: "0 -4px 20px rgba(0,0,0,0.2)",
-            }}
-        >
-            <Container maxWidth="lg">
+          sx={{
+            position: "absolute",
+            top: 0,
+            left: "50%",
+            transform: "translateX(-50%)",
+            width: "80%",
+            height: "3px",
+            background:
+              "linear-gradient(90deg, transparent, #00e5ff, transparent)",
+            opacity: 0.5,
+          }}
+        />
 
-                {/* TOP SECTION */}
-                <Box
-                    sx={{
-                        display: "flex",
-                        justifyContent: "space-between",
-                        alignItems: "center",
-                        flexWrap: "wrap",
-                        gap: 3,
-                    }}
-                >
-                    {/* LEFT SIDE */}
-                    <Box>
-                        <Typography variant="h5" sx={{ fontWeight: 700, mb: 1 }}>
-                            University Library
-                        </Typography>
-                        <Typography variant="body1" sx={{ opacity: 0.8 }}>
-                            19 Nguyen Huu Tho, Tan Hung, Ho Chi Minh City
-                        </Typography>
-                        <Typography variant="body1" sx={{ opacity: 0.8 }}>
-                            Phone: (84) 123 456 789
-                        </Typography>
-                        <Typography variant="body1" sx={{ opacity: 0.8 }}>
-                            Email: library@university.edu
-                        </Typography>
-                    </Box>
+        {/* TOP CONTENT */}
+        <Grid container spacing={6}>
+          {/* COL 1 - Info */}
+          <Grid item xs={12} md={4}>
+            <Typography variant="h5" sx={{ fontWeight: 700, mb: 2 }}>
+              Thư Viện HCMUE
+            </Typography>
+            <Typography sx={{ opacity: 0.85, mb: 1.5 }}>
+              Tòa nhà Thư viện – Nhà làm việc Giáo sư, Lầu 1–7  
+              280 An Dương Vương, Phường Chợ Quán, TP. Hồ Chí Minh
+            </Typography>
+            <Typography sx={{ opacity: 0.85 }}>
+              SĐT: (028) 38352020 – nội bộ 231  
+            </Typography>
+            <Typography sx={{ opacity: 0.85 }}>Email: thuvien@hcmue.edu.vn</Typography>
+          </Grid>
 
-                    {/* RIGHT SIDE BUTTON */}
-                    <Button
-                        variant="contained"
-                        color="secondary"
-                        sx={{
-                            px: 4,
-                            py: 1.2,
-                            fontWeight: 600,
-                            borderRadius: "10px",
-                            boxShadow: "0px 4px 12px rgba(255,255,255,0.2)",
-                            transition: "0.3s",
-                            '&:hover': {
-                                transform: "scale(1.05)",
-                                boxShadow: "0px 6px 16px rgba(255,255,255,0.35)",
-                            },
-                        }}
-                    >
-                        Contact us
-                    </Button>
-                </Box>
+          {/* COL 2 - Quick Links */}
+          <Grid item xs={12} md={4}>
+            <Typography variant="h6" sx={{ fontWeight: 600, mb: 2 }}>
+              Liên kết nhanh
+            </Typography>
 
-                {/* DIVIDER LINE */}
-                <Box
-                    sx={{
-                        height: "1px",
-                        backgroundColor: "rgba(255,255,255,0.3)",
-                        my: 4,
-                    }}
-                />
-
-                {/* SOCIAL SECTION */}
-                <Stack direction="row" spacing={2} justifyContent="center">
-                    <IconButton sx={{ color: "white", '&:hover': { color: '#ffea00' } }}>
-                        <Facebook />
-                    </IconButton>
-                    <IconButton sx={{ color: "white", '&:hover': { color: '#ffea00' } }}>
-                        <Instagram />
-                    </IconButton>
-                    <IconButton sx={{ color: "white", '&:hover': { color: '#ffea00' } }}>
-                        <YouTube />
-                    </IconButton>
-                    <IconButton sx={{ color: "white", '&:hover': { color: '#ffea00' } }}>
-                        <Mail />
-                    </IconButton>
-                </Stack>
-
-                {/* COPYRIGHT */}
+            <Stack spacing={1.3}>
+              {[
+                "Trang chủ",
+                "Giới thiệu",
+                "Tra cứu tài liệu",
+                "Tin tức – Sự kiện",
+                "Liên hệ",
+              ].map((text) => (
                 <Typography
-                    variant="body2"
-                    sx={{
-                        mt: 3,
-                        textAlign: "center",
-                        opacity: 0.7,
-                    }}
+                  key={text}
+                  sx={{
+                    opacity: 0.8,
+                    cursor: "pointer",
+                    transition: "0.25s",
+                    "&:hover": { opacity: 1, pl: 1, color: "#00e5ff" },
+                  }}
                 >
-                    © {new Date().getFullYear()} University Library — All rights reserved.
+                  {text}
                 </Typography>
+              ))}
+            </Stack>
+          </Grid>
 
-            </Container>
-        </Box>
-    );
+          {/* COL 3 - Contact + Social */}
+          <Grid item xs={12} md={4}>
+            <Typography variant="h6" sx={{ fontWeight: 600, mb: 2 }}>
+              Kết nối với chúng tôi
+            </Typography>
+
+            <Stack direction="row" spacing={2} sx={{ mb: 3 }}>
+              {[
+                { icon: <Facebook />, color: "#1877f2" },
+                { icon: <Instagram />, color: "#e1306c" },
+                { icon: <YouTube />, color: "#ff0000" },
+                { icon: <Mail />, color: "#ffc400" },
+              ].map((item, i) => (
+                <IconButton
+                  key={i}
+                  sx={{
+                    color: "white",
+                    border: "1px solid rgba(255,255,255,0.3)",
+                    transition: "0.25s",
+                    "&:hover": {
+                      color: item.color,
+                      borderColor: item.color,
+                      transform: "scale(1.15)",
+                    },
+                  }}
+                >
+                  {item.icon}
+                </IconButton>
+              ))}
+            </Stack>
+
+            <Button
+              variant="contained"
+              sx={{
+                mt: 1,
+                px: 4,
+                py: 1.3,
+                borderRadius: "10px",
+                fontWeight: 600,
+                background: "linear-gradient(135deg,#00acc1,#00e5ff)",
+                boxShadow: "0 4px 15px rgba(0,229,255,0.3)",
+                "&:hover": {
+                  background: "linear-gradient(135deg,#00c2d1,#5af4ff)",
+                  boxShadow: "0 6px 18px rgba(0,229,255,0.45)",
+                  transform: "translateY(-2px)",
+                },
+              }}
+            >
+              Liên hệ ngay
+            </Button>
+          </Grid>
+        </Grid>
+
+        {/* DIVIDER */}
+        <Divider
+          sx={{
+            my: 5,
+            borderColor: "rgba(255,255,255,0.2)",
+            borderWidth: "0.5px",
+          }}
+        />
+
+        {/* COPYRIGHT */}
+        <Typography
+          sx={{
+            textAlign: "center",
+            opacity: 0.7,
+            letterSpacing: 0.4,
+          }}
+        >
+          © {new Date().getFullYear()} HCMUE Library — All rights reserved.
+        </Typography>
+      </Container>
+    </Box>
+  );
 }

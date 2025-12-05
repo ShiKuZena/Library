@@ -139,7 +139,7 @@ export function useChatVisibility() {
             setTimeout(() => {
                 appendMessage(
                     "bot",
-                    "Hello, I'm your Chatbot AI Library. You can freely ask me about the library."
+                    "Xin chào, Tôi là Chatbot thư viện của SPHCM. Tôi ở đây để hỗ trợ bạn."
                 );
             }, 500);
             setGreeted(true);
