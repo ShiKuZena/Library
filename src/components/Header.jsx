@@ -65,7 +65,6 @@ export default function Header() {
                 color="default"
                 elevation={scrolled ? 6 : 0}
                 sx={{
-                    zIndex: (theme) => theme.zIndex.drawer + 10,
                     backdropFilter: "blur(10px)",
                     bgcolor: theme.palette.background.paper,
                     transition: "all 0.25s ease",
