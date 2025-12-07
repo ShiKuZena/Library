@@ -147,7 +147,7 @@ export default function Header() {
                         <HoverMenuButton
                             title="Giới thiệu"
                             items={[
-                                { label: "Giới thiêu chung", to: "/gioi-thieu/gioi-thieu" },
+                                { label: "Giới thiệu chung", to: "/gioi-thieu/gioi-thieu" },
                                 { label: "Cơ cấu tổ chức", to: "/gioi-thieu/co-cau" },
                                 { label: "Chức năng nhiệm vụ", to: "/gioi-thieu/chuc-nang" },
                                 { label: "Nội quy thư viện", to: "/gioi-thieu/noi-quy" },
