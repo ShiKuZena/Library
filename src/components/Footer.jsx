@@ -10,7 +10,7 @@ import {
   Divider,
   Button,
 } from "@mui/material";
-import { Facebook, Instagram, YouTube, Mail } from "@mui/icons-material";
+import { Facebook, YouTube } from "@mui/icons-material";
 
 export default function Footer() {
   return (

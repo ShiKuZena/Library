@@ -81,10 +81,10 @@ export default function Header() {
 
     return (
         <>
-            <div
+            <Box
                 style={{
                     position: "fixed",
-                    top: 0,
+                    top: JSON.parse(localStorage.getItem("user")) ? 33 : 0,
                     left: 0,
                     right: 0,
                     height: 33,
@@ -98,14 +98,14 @@ export default function Header() {
                 <Marquee speed={10}>
                     <span style={{ marginRight: 40 }}>Chào mừng bạn đến với Website Thư viện Trường Đại học Sư phạm Thành phố Hồ Chí Minh</span>
                 </Marquee>
-            </div>
+            </Box>
             {/* TOP NAVBAR */}
             <AppBar
                 position="fixed"
                 color="default"
                 elevation={scrolled ? 6 : 0}
                 sx={{
-                    top: JSON.parse(localStorage.getItem("user")) ? 33 : 0,
+                    top: JSON.parse(localStorage.getItem("user")) ? 66 : 33,
                     backdropFilter: "blur(10px)",
                     bgcolor: theme.palette.background.paper,
                     transition: "all 0.25s ease",
